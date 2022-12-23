@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.springbootvue3.mapper.UserMapper">
+<select id="adminList" resultType="map">
+    select * from user left join role on user.r_id=role.role_id where level &lt; #{level} order by id desc limit #{limit1},#{limit2};
+</select>
+    <select id="userList" resultType="User">
+select * from user where level=#{level} order by id desc limit #{limit1},#{limit2};
+    </select>
+</mapper>
